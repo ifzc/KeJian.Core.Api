@@ -23,7 +23,7 @@ namespace KeJian.Core.Api
         {
             services.AddControllers();
 
-            services.AddDbContextPool<DefaultDbContext>(options => options.UseMySql(Configuration.GetConnectionString("Default")), 20);
+            services.AddDbContextPool<DefaultDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")), 20);
 
             services.AddSwaggerGen(c =>
             {
