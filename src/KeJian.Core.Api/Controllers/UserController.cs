@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using KeJian.Core.Domain.Models;
 using KeJian.Core.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace KeJian.Core.Api.Controllers
 {
-    [Route("User")]
+    [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly DefaultDbContext _dbContext;
