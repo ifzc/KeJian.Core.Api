@@ -1,20 +1,15 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KeJian.Core.Api.Dtos.Models
+namespace KeJian.Core.Domain.Models
 {
-    public class News
+    public class Enterprise
     {
         /// <summary>
-        /// ID
+        /// 荣誉ID
         /// </summary>
         [Key]
         public int Id { get; set; }
-
-        /// <summary>
-        /// 标题
-        /// </summary>
-        public string Title { get; set; }
 
         /// <summary>
         /// 图片
@@ -22,17 +17,12 @@ namespace KeJian.Core.Api.Dtos.Models
         public string Img { get; set; }
 
         /// <summary>
-        /// 类型 1：新闻咨询 2：行业动态
+        /// 注释(描述)
         /// </summary>
-        public int Type { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
-        /// 内容
-        /// </summary>
-        public string Content { get; set; }
-
-        /// <summary>
-        /// 修改时间
+        /// 添加时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
 

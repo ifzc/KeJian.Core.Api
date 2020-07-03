@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KeJian.Core.Api.Dtos.Models
+namespace KeJian.Core.Domain.Models
 {
-    public class Enterprise
+    public class Honor
     {
         /// <summary>
         /// 荣誉ID
@@ -25,6 +25,5 @@ namespace KeJian.Core.Api.Dtos.Models
         /// 添加时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
-
     }
 }

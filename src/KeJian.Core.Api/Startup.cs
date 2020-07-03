@@ -1,4 +1,4 @@
-using KeJian.Core.Api.EntityFrameworkCore;
+using KeJian.Core.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

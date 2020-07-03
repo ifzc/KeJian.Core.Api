@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KeJian.Core.Api.Dtos.Models
+namespace KeJian.Core.Domain.Models
 {
     public class Message
     {

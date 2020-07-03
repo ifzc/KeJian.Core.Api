@@ -1,24 +1,21 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace KeJian.Core.Api.Dtos.Models
+namespace KeJian.Core.Domain.Models
 {
-    public class Course
+    public class DataDictionary
     {
-
-        /// <summary>
-        /// 历程ID
-        /// </summary>
         [Key]
         public int Id { get; set; }
 
         /// <summary>
-        /// 年份
+        /// Key
         /// </summary>
-        public string Year { get; set; }
+        public string Key { get; set; }
 
         /// <summary>
-        /// 内容
+        /// 值
         /// </summary>
         public string Content { get; set; }
+
     }
 }

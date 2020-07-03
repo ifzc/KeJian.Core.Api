@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace KeJian.Core.Api.Migrations
+namespace KeJian.Core.EntityFramework.Migrations
 {
     public partial class Initial : Migration
     {

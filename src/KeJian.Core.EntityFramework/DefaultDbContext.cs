@@ -1,7 +1,7 @@
-﻿using KeJian.Core.Api.Dtos.Models;
+﻿using KeJian.Core.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace KeJian.Core.Api.EntityFrameworkCore
+namespace KeJian.Core.EntityFramework
 {
     public class DefaultDbContext : DbContext
     {

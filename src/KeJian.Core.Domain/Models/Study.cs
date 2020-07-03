@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace KeJian.Core.Api.Dtos.Models
+namespace KeJian.Core.Domain.Models
 {
-    public class Team
+    public class Study
     {
         /// <summary>
         /// ID
@@ -12,14 +12,14 @@ namespace KeJian.Core.Api.Dtos.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// 图片
+        /// 学习标题
         /// </summary>
-        public string Img { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
-        /// 备注
+        /// 学习内容
         /// </summary>
-        public string Remark { get; set; }
+        public string Content { get; set; }
 
         /// <summary>
         /// 添加时间
