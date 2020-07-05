@@ -45,5 +45,7 @@ namespace KeJian.Core.Domain.Models
         /// 留言时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

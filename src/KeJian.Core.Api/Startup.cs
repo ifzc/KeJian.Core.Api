@@ -1,4 +1,5 @@
-﻿using KeJian.Core.EntityFramework;
+﻿using KeJian.Core.Domain.Configs;
+using KeJian.Core.EntityFramework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,9 +27,14 @@ namespace KeJian.Core.Api
         {
             services.AddControllers();
 
-            services.AddDbContextPool<DefaultDbContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")), 20);
+            services.AddDbContextPool<DefaultDbContext>(options =>
+            {
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+            }, 20);
 
-            // 配置身份认证
+            services.AddOptions();
+            services.Configure<JwtSecurityOption>(Configuration.GetSection("JwtSecurityOption"));
+
             services.AddAuthentication(option =>
             {
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -42,9 +48,9 @@ namespace KeJian.Core.Api
                     ValidateIssuerSigningKey = true,
                     ValidateIssuer = true,
                     ValidateAudience = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.Unicode.GetBytes("123456789123456789123456789")),
-                    ValidIssuer = "webapi.cn",
-                    ValidAudience = "WebApi"
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.Unicode.GetBytes(Configuration.GetSection("JwtSecurityOption:SigningKey").Value)),
+                    ValidIssuer = Configuration.GetSection("JwtSecurityOption:Issuer").Value,
+                    ValidAudience = Configuration.GetSection("JwtSecurityOption:Audience").Value
                 };
             });
 

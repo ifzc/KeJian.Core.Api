@@ -17,5 +17,7 @@ namespace KeJian.Core.Domain.Models
         /// </summary>
         public string Content { get; set; }
 
+        public bool IsDeleted { get; set; }
+
     }
 }

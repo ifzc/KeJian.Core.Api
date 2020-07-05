@@ -33,5 +33,7 @@ namespace KeJian.Core.Domain.Models
         /// 添加时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

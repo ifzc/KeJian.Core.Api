@@ -29,7 +29,6 @@ namespace KeJian.Core.EntityFramework
 
         public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
         {
-
         }
     }
 }
