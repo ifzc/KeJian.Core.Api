@@ -3,8 +3,8 @@
 ### ✨站点部署
 > System：Linux - CentOS 7.7   
 > DB：MySql  
-> Api Host : kejianapi.filog.cn/swagger   
-> Web Host : kejian.filog.cn (接口正在替换为新接口)  
+> Api Host : [kejianapi.filog.cn/swagger](http://kejianapi.filog.cn/swagger)  
+> Web Host : [kejian.filog.cn](http://kejian.filog.cn/) （接口正在替换为新接口）  
 > 测试账号：admin 123456  
 
 > 有小伙伴要的表结构 [TableSql.sql](https://github.com/ifzc/KeJian.Core.Api/blob/master/TableSql.sql) 
