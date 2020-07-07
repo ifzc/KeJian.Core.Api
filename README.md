@@ -1,6 +1,15 @@
 ﻿# KeJian.Core.Api
 
-### 💡 简单两步即可运行项目
+### ✨站点部署
+> System：Linux - CentOS 7.7   
+> DB：MySql  
+> Api Host : kejianapi.filog.cn/swagger   
+> Web Host : kejian.filog.cn (接口正在替换为新接口)  
+> 测试账号：admin 123456  
+
+> 有小伙伴要的表结构 [TableSql.sql](https://github.com/ifzc/KeJian.Core.Api/blob/master/TableSql.sql) 
+
+### 🔥 简单两步即可运行项目
 > Step 1 :   
 > 在 KeJian.Core.Api 项目根目录中添加 `appsettings.Demo.json` 文件   
 ``` 
@@ -27,12 +36,12 @@
 ### 💡 CodeFirst 命令
 > PM 模式 （程序包管理控制台）
 ```
-Add-Migration Initial 
-Update-Database
-Script-Migration
+PM> Add-Migration Initial              建立并初始化数据库
+PM> Update-Database                    更新数据库
+PM> Script-Migration                   生成 SQL 语句
 ```
 > Cmd 模式
 ```
-dotnet ef migrations add Initial     建立并初始化数据库
-dotnet ef database update            更新数据库
+> dotnet ef migrations add Initial     建立并初始化数据库
+> dotnet ef database update            更新数据库
 ```
