@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using KeJian.Core.Application.Interface;
 using KeJian.Core.Domain.Models;
-using KeJian.Core.EntityFramework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace KeJian.Core.Api.Controllers
 {
@@ -16,11 +12,11 @@ namespace KeJian.Core.Api.Controllers
     [Authorize]
     public class UserController : ControllerBase
     {
-        private readonly DefaultDbContext _dbContext;
+        private readonly IUserApplication _userApplication;
 
-        public UserController(IServiceProvider serviceProvider)
+        public UserController(IUserApplication userApplication)
         {
-            _dbContext = serviceProvider.GetService<DefaultDbContext>();
+            _userApplication = userApplication;
         }
 
         /// <summary>
@@ -30,24 +26,18 @@ namespace KeJian.Core.Api.Controllers
         [HttpGet]
         public async Task<List<User>> GetAsync()
         {
-            var list = await _dbContext.User
-                .Where(u => !u.IsDeleted)
-                .ToListAsync();
-
-            return list;
+            return await _userApplication.GetAsync();
         }
 
         /// <summary>
         /// 用户详情
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<bool> Update(User user)
+        public async Task<User> Details(int id)
         {
-            _dbContext.Update(user);
-            var count = await _dbContext.SaveChangesAsync();
-            return count > 0;
+            return await _userApplication.Details(id);
         }
         
         /// <summary>
@@ -58,19 +48,7 @@ namespace KeJian.Core.Api.Controllers
         [HttpPut]
         public async Task<User> CreateOrUpdateAsync(User user)
         {
-            if (user.Id == 0)
-            {
-                user.CreateTime = DateTime.Now;
-                var entity = await _dbContext.AddAsync(user);
-                await _dbContext.SaveChangesAsync();
-                return entity.Entity;
-            }
-            else
-            {
-                _dbContext.Update(user);
-                await _dbContext.SaveChangesAsync();
-                return user;
-            }
+            return await _userApplication.CreateOrUpdateAsync(user);
         }
 
         /// <summary>
@@ -81,10 +59,7 @@ namespace KeJian.Core.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<bool> DeleteAsync(int id)
         {
-            var user = new User { Id = id, IsDeleted = true };
-            _dbContext.Entry(user).Property(u => u.IsDeleted).IsModified = true;
-            var count = await _dbContext.SaveChangesAsync();
-            return count > 0;
+            return await _userApplication.DeleteAsync(id);
         }
     }
 }

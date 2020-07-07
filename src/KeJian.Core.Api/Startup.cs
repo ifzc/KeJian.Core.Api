@@ -10,6 +10,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using KeJian.Core.Application;
+using KeJian.Core.Library;
+using KeJian.Core.Library.Filter;
 
 namespace KeJian.Core.Api
 {
@@ -20,12 +23,16 @@ namespace KeJian.Core.Api
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<ResultFilter>();
+                options.Filters.Add<ExceptionFilter>();
+            });
 
             services.AddDbContextPool<DefaultDbContext>(options =>
             {
@@ -54,11 +61,11 @@ namespace KeJian.Core.Api
                 };
             });
 
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
                 {
-                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "kejian api", Version = "v1" });
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "kejian api", Version = "v1" });
 
-                    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                     {
                         Description = "🔑 添加Jwt授权Token：Bearer Token",
                         Name = "Authorization",
@@ -68,7 +75,7 @@ namespace KeJian.Core.Api
                         Scheme = "Bearer"
                     });
 
-                    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                    options.AddSecurityRequirement(new OpenApiSecurityRequirement
                     {
                         {
                             new OpenApiSecurityScheme{
@@ -78,7 +85,12 @@ namespace KeJian.Core.Api
                            },new string[] { }
                         }
                     });
+
+                    options.OperationFilter<SwaggerFilter>();
                 });
+
+            services.AddApplication();
+            services.AddLibrary();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KeJian.Core.Domain.Dtos
+﻿namespace KeJian.Core.Domain.Dto
 {
     public class LoginInputDto
     {
