@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using KeJian.Core.Application.Interface;
 using KeJian.Core.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KeJian.Core.Api.Controllers
@@ -35,8 +32,8 @@ namespace KeJian.Core.Api.Controllers
         /// </summary>
         /// <param name="keys"></param>
         /// <returns></returns>
-        [HttpGet("")]
-        public async Task<List<DataDictionary>> GetAsync(string keys)
+        [HttpPost]
+        public async Task<List<DataDictionary>> GetAsync(List<string> keys)
         {
             return await _application.GetAsync(keys);
         }

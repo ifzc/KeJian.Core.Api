@@ -27,11 +27,10 @@ namespace KeJian.Core.Application
                 .ToListAsync();
         }
 
-        public async Task<List<DataDictionary>> GetAsync(string keys)
+        public async Task<List<DataDictionary>> GetAsync(List<string> keys)
         {
-            var keyList = keys.Split(',');
             var entity = await _dbContext.DataDictionary
-                .Where(c => keyList.Contains(c.Key))
+                .Where(c => keys.Contains(c.Key))
                 .ToListAsync();
 
             return entity;

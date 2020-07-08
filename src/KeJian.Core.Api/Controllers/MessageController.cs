@@ -8,49 +8,49 @@ namespace KeJian.Core.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CourseController : ControllerBase
+    public class MessageController : ControllerBase
     {
-        private readonly IBaseApplication<Course> _application;
+        private readonly IBaseApplication<Message> _application;
 
-        public CourseController(IBaseApplication<Course> application)
+        public MessageController(IBaseApplication<Message> application)
         {
             _application = application;
         }
 
         /// <summary>
-        ///     发展历程列表
+        ///     消息列表
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<List<Course>> GetAsync()
+        public async Task<List<Message>> GetAsync()
         {
             return await _application.GetAsync();
         }
 
         /// <summary>
-        ///     发展历程详情
+        ///     消息详情
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<Course> GetAsync(int id)
+        public async Task<Message> GetAsync(int id)
         {
             return await _application.GetAsync(id);
         }
 
         /// <summary>
-        ///     创建or修改 发展历程
+        ///     创建or修改 消息
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<Course> CreateOrUpdateAsync(Course input)
+        public async Task<Message> CreateOrUpdateAsync(Message input)
         {
             return await _application.CreateOrUpdateAsync(input);
         }
 
         /// <summary>
-        ///     删除发展历程
+        ///     删除消息
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
