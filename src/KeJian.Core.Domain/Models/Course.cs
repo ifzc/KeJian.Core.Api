@@ -1,11 +1,9 @@
 ﻿using KeJian.Core.Domain.Models.Base;
-using System.ComponentModel.DataAnnotations;
 
 namespace KeJian.Core.Domain.Models
 {
     public class Course : Entity
     {
-
         /// <summary>
         ///     年份
         /// </summary>
@@ -15,6 +13,5 @@ namespace KeJian.Core.Domain.Models
         ///     内容
         /// </summary>
         public string Content { get; set; }
-
     }
 }

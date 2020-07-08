@@ -1,12 +1,10 @@
-﻿using KeJian.Core.Domain.Models.Base;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using KeJian.Core.Domain.Models.Base;
 
 namespace KeJian.Core.Domain.Models
 {
     public class Study : Entity
     {
-
         /// <summary>
         ///     学习标题
         /// </summary>
@@ -21,6 +19,5 @@ namespace KeJian.Core.Domain.Models
         ///     添加时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
-
     }
 }

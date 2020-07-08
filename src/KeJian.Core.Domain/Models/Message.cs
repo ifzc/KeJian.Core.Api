@@ -1,12 +1,10 @@
-﻿using KeJian.Core.Domain.Models.Base;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using KeJian.Core.Domain.Models.Base;
 
 namespace KeJian.Core.Domain.Models
 {
     public class Message : Entity
     {
-
         /// <summary>
         ///     true 留言板 false 需求投递
         /// </summary>
@@ -41,6 +39,5 @@ namespace KeJian.Core.Domain.Models
         ///     留言时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
-
     }
 }

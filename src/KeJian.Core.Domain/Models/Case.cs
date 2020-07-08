@@ -1,13 +1,10 @@
-﻿using KeJian.Core.Domain.Models.Base;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+﻿using System;
+using KeJian.Core.Domain.Models.Base;
 
 namespace KeJian.Core.Domain.Models
 {
     public class Case : Entity
     {
-
         /// <summary>
         ///     案例图片
         /// </summary>

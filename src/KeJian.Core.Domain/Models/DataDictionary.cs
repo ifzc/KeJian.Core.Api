@@ -1,11 +1,9 @@
 ﻿using KeJian.Core.Domain.Models.Base;
-using System.ComponentModel.DataAnnotations;
 
 namespace KeJian.Core.Domain.Models
 {
     public class DataDictionary : Entity
     {
-
         /// <summary>
         ///     Key
         /// </summary>
@@ -15,6 +13,5 @@ namespace KeJian.Core.Domain.Models
         ///     值
         /// </summary>
         public string Content { get; set; }
-
     }
 }

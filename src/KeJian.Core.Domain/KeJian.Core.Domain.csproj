@@ -5,15 +5,15 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <OutputPath>KeJian.Core.Api\bin\Debug\</OutputPath>
-	  <DocumentationFile>KeJian.Core.Api\bin\Debug\KeJian.Core.Domain.xml</DocumentationFile>
-	  <NoWarn>1701;1702;1591</NoWarn>
+		<OutputPath>KeJian.Core.Api\bin\Debug\</OutputPath>
+		<DocumentationFile>KeJian.Core.Api\bin\Debug\KeJian.Core.Domain.xml</DocumentationFile>
+		<NoWarn>1701;1702;1591</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <OutputPath>KeJian.Core.Api\bin\Release\</OutputPath>
-	  <DocumentationFile>KeJian.Core.Api\bin\Release\KeJian.Core.Domain.xml</DocumentationFile>
-	  <NoWarn>1701;1702;1591</NoWarn>
+		<OutputPath>KeJian.Core.Api\bin\Release\</OutputPath>
+		<DocumentationFile>KeJian.Core.Api\bin\Release\KeJian.Core.Domain.xml</DocumentationFile>
+		<NoWarn>1701;1702;1591</NoWarn>
 	</PropertyGroup>
 
 </Project>

@@ -1,6 +1,5 @@
-﻿using KeJian.Core.Domain.Models.Base;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using KeJian.Core.Domain.Models.Base;
 
 namespace KeJian.Core.Domain.Models
 {
@@ -28,6 +27,5 @@ namespace KeJian.Core.Domain.Models
         ///     添加时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
-
     }
 }
