@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace KeJian.Core.Api
 {
@@ -109,7 +110,11 @@ namespace KeJian.Core.Api
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "kejian api demo"); });
+            app.UseSwaggerUI(options =>
+            {
+                options.DocExpansion(DocExpansion.None);
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "kejian api demo");
+            });
         }
     }
 }
