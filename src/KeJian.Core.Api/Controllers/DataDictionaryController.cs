@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using KeJian.Core.Application.Interface;
 using KeJian.Core.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KeJian.Core.Api.Controllers
@@ -55,6 +56,7 @@ namespace KeJian.Core.Api.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize]
         public async Task<DataDictionary> CreateOrUpdateAsync(DataDictionary input)
         {
             return await _application.CreateOrUpdateAsync(input);
@@ -66,6 +68,7 @@ namespace KeJian.Core.Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<bool> DeleteAsync(int id)
         {
             return await _application.DeleteAsync(id);

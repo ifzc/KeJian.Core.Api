@@ -10,7 +10,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\KeJian.Core.Domain\KeJian.Core.Domain.csproj" />
 		<ProjectReference Include="..\KeJian.Core.EntityFramework\KeJian.Core.EntityFramework.csproj" />
 		<ProjectReference Include="..\KeJian.Core.Library\KeJian.Core.Library.csproj" />
 	</ItemGroup>

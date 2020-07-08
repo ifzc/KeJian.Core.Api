@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using KeJian.Core.Application;
@@ -65,7 +66,7 @@ namespace KeJian.Core.Api
 
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "kejian api", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "kejian api", Version = "v1" });
 
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
@@ -88,7 +89,7 @@ namespace KeJian.Core.Api
                                 Id = "Bearer"
                             }
                         },
-                        new string[] { }
+                        new List<string> { }
                     }
                 });
 
