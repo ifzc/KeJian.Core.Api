@@ -1,58 +1,59 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using KeJian.Core.Application.Interface;
 using KeJian.Core.Domain.Models;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KeJian.Core.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
-    public class UserController : ControllerBase
+    public class CourseController : ControllerBase
     {
-        private readonly IBaseApplication<User> _application;
+        private readonly IBaseApplication<Course> _application;
 
-        public UserController(IBaseApplication<User> application)
+        public CourseController(IBaseApplication<Course> application)
         {
             _application = application;
         }
 
         /// <summary>
-        ///     用户列表
+        ///     发展历程列表
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<List<User>> GetAsync()
+        public async Task<List<Course>> GetAsync()
         {
             return await _application.GetAsync();
         }
 
         /// <summary>
-        ///     用户详情
+        ///     发展历程详情
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<User> GetAsync(int id)
+        public async Task<Course> GetAsync(int id)
         {
             return await _application.GetAsync(id);
         }
 
         /// <summary>
-        ///     创建or修改 用户
+        ///     创建or修改 发展历程
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<User> CreateOrUpdateAsync(User input)
+        public async Task<Course> CreateOrUpdateAsync(Course input)
         {
             return await _application.CreateOrUpdateAsync(input);
         }
 
         /// <summary>
-        ///     删除用户
+        ///     删除发展历程
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
