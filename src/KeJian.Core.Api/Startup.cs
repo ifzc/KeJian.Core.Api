@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.IO;
+using System.Text;
 using KeJian.Core.Application;
 using KeJian.Core.Domain.Configs;
 using KeJian.Core.EntityFramework;
@@ -91,6 +93,11 @@ namespace KeJian.Core.Api
                 });
 
                 options.OperationFilter<SwaggerFilter>();
+
+                foreach (var enumerateFile in Directory.EnumerateFiles(AppContext.BaseDirectory, "Kejian.*.xml"))
+                {
+                    options.IncludeXmlComments(enumerateFile, true);
+                }
             });
 
             services.AddApplication();

@@ -1,15 +1,11 @@
-﻿using System;
+﻿using KeJian.Core.Domain.Models.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace KeJian.Core.Domain.Models
 {
-    public class Enterprise
+    public class Enterprise: Entity
     {
-        /// <summary>
-        ///     荣誉ID
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         ///     图片
@@ -26,6 +22,5 @@ namespace KeJian.Core.Domain.Models
         /// </summary>
         public DateTime? CreateTime { get; set; }
 
-        public bool IsDeleted { get; set; }
     }
 }

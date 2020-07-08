@@ -1,14 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KeJian.Core.Domain.Models.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace KeJian.Core.Domain.Models
 {
-    public class Course
+    public class Course : Entity
     {
-        /// <summary>
-        ///     历程ID
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         ///     年份
@@ -20,6 +16,5 @@ namespace KeJian.Core.Domain.Models
         /// </summary>
         public string Content { get; set; }
 
-        public bool IsDeleted { get; set; }
     }
 }

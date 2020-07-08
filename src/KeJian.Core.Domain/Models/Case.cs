@@ -1,15 +1,12 @@
-﻿using System;
+﻿using KeJian.Core.Domain.Models.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace KeJian.Core.Domain.Models
 {
-    public class Case
+    public class Case : Entity
     {
-        /// <summary>
-        ///     案例ID
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         ///     案例图片
@@ -35,7 +32,5 @@ namespace KeJian.Core.Domain.Models
         ///     修改时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 }

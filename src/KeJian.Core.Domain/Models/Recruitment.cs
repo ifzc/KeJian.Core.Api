@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KeJian.Core.Domain.Models.Base;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace KeJian.Core.Domain.Models
@@ -6,14 +7,8 @@ namespace KeJian.Core.Domain.Models
     /// <summary>
     ///     招聘信息Dto
     /// </summary>
-    public class Recruitment
+    public class Recruitment : Entity
     {
-        /// <summary>
-        ///     ID
-        /// </summary>
-        [Key]
-        public int Id { get; set; }
-
         /// <summary>
         ///     标题
         /// </summary>
@@ -34,6 +29,5 @@ namespace KeJian.Core.Domain.Models
         /// </summary>
         public DateTime? CreateTime { get; set; }
 
-        public bool IsDeleted { get; set; }
     }
 }

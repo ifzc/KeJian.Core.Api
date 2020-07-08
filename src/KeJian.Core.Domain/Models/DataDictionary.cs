@@ -1,11 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KeJian.Core.Domain.Models.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace KeJian.Core.Domain.Models
 {
-    public class DataDictionary
+    public class DataDictionary : Entity
     {
-        [Key] 
-        public int Id { get; set; }
 
         /// <summary>
         ///     Key
@@ -17,6 +16,5 @@ namespace KeJian.Core.Domain.Models
         /// </summary>
         public string Content { get; set; }
 
-        public bool IsDeleted { get; set; }
     }
 }
