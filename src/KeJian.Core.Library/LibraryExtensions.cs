@@ -6,7 +6,6 @@ namespace KeJian.Core.Library
     {
         public static void AddLibrary(this IServiceCollection services)
         {
-            
         }
     }
 }

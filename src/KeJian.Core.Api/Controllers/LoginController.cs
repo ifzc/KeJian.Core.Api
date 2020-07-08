@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using KeJian.Core.Application.Interface;
 using KeJian.Core.Domain.Dto;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KeJian.Core.Api.Controllers
 {

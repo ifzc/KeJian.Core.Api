@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace KeJian.Core.Domain.Configs
+﻿namespace KeJian.Core.Domain.Configs
 {
     public class JwtSecurityOption
     {

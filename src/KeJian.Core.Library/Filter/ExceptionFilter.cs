@@ -22,7 +22,7 @@ namespace KeJian.Core.Library.Filter
         private readonly ILogger<ExceptionFilter> _logger;
 
         /// <summary>
-        /// 异常处理过滤器
+        ///     异常处理过滤器
         /// </summary>
         public ExceptionFilter(ILogger<ExceptionFilter> logger)
         {
@@ -33,28 +33,21 @@ namespace KeJian.Core.Library.Filter
         {
             System.Exception ex;
             if (context.Exception is AggregateException)
-            {
-                ex = ((AggregateException)context.Exception).InnerExceptions.First();
-            }
+                ex = ((AggregateException) context.Exception).InnerExceptions.First();
             else
-            {
                 ex = context.Exception;
-            }
 
-            if (ex is ResponseExceptionBase rEx)
-            {
-                ProcessBusinessException(rEx, context);
-            }
+            if (ex is ResponseExceptionBase rEx) ProcessBusinessException(rEx, context);
         }
 
         /// <summary>
-        /// 业务异常的处理
+        ///     业务异常的处理
         /// </summary>
         /// <param name="ex"></param>
         /// <param name="context"></param>
         private void ProcessBusinessException(ResponseExceptionBase ex, ExceptionContext context)
         {
-            const HttpStatusCode statusCode = (HttpStatusCode)288;
+            const HttpStatusCode statusCode = (HttpStatusCode) 288;
 
             string exMessage;
             int errorCode;
@@ -71,7 +64,7 @@ namespace KeJian.Core.Library.Filter
                 exMessage = string.Empty;
             }
 
-            context.HttpContext.Response.StatusCode = (int)statusCode;
+            context.HttpContext.Response.StatusCode = (int) statusCode;
             _logger.LogInformation(errorCode, "发生业务异常 {0} {1}", errorCode.ToString(), exMessage);
             context.Result = new JsonResult(new ApiResult(errorCode, exMessage), JsonSerializerSettings);
         }

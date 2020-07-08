@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 using KeJian.Core.Domain.Dto.Base;
 using KeJian.Core.Library.Attributes;
 using Microsoft.AspNetCore.Mvc;

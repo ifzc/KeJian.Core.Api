@@ -5,6 +5,10 @@ namespace KeJian.Core.EntityFramework
 {
     public class DefaultDbContext : DbContext
     {
+        public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<Message> Message { get; set; }
 
         public DbSet<News> News { get; set; }
@@ -26,9 +30,5 @@ namespace KeJian.Core.EntityFramework
         public DbSet<Study> Study { get; set; }
 
         public DbSet<Enterprise> Enterprise { get; set; }
-
-        public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
-        {
-        }
     }
 }

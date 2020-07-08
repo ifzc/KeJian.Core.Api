@@ -12,54 +12,54 @@ namespace KeJian.Core.Api.Controllers
     [Authorize]
     public class UserController : ControllerBase
     {
-        private readonly IUserApplication _userApplication;
+        private readonly IBaseApplication<User> _application;
 
-        public UserController(IUserApplication userApplication)
+        public UserController(IBaseApplication<User> userApplication)
         {
-            _userApplication = userApplication;
+            _application = userApplication;
         }
 
         /// <summary>
-        /// 用户列表
+        ///     用户列表
         /// </summary>
         /// <returns></returns>
         [HttpGet]
         public async Task<List<User>> GetAsync()
         {
-            return await _userApplication.GetAsync();
+            return await _application.GetAsync();
         }
 
         /// <summary>
-        /// 用户详情
+        ///     用户详情
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<User> Details(int id)
+        public async Task<User> GetAsync(int id)
         {
-            return await _userApplication.Details(id);
-        }
-        
-        /// <summary>
-        /// 创建or修改 用户
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        [HttpPut]
-        public async Task<User> CreateOrUpdateAsync(User user)
-        {
-            return await _userApplication.CreateOrUpdateAsync(user);
+            return await _application.GetAsync(id);
         }
 
         /// <summary>
-        /// 删除用户
+        ///     创建or修改 用户
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<User> CreateOrUpdateAsync(User input)
+        {
+            return await _application.CreateOrUpdateAsync(input);
+        }
+
+        /// <summary>
+        ///     删除用户
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<bool> DeleteAsync(int id)
         {
-            return await _userApplication.DeleteAsync(id);
+            return await _application.DeleteAsync(id);
         }
     }
 }

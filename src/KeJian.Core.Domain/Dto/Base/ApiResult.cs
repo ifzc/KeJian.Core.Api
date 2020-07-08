@@ -1,42 +1,37 @@
-﻿namespace KeJian.Core.Domain.Dto.Base
+﻿// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable MemberCanBeProtected.Global
+// ReSharper disable UnusedMember.Global
+namespace KeJian.Core.Domain.Dto.Base
 {
-    public class ApiResult<TResult> : ApiResult
+    public sealed class ApiResult<TResult> : ApiResult
     {
-        protected ApiResult()
-        {
-        }
-
         public ApiResult(int errorCode, string message, TResult result)
             : base(errorCode, message)
         {
-            this.Result = result;
+            Result = result;
         }
 
         public TResult Result { get; set; }
 
-        public virtual void SetSuccess(TResult data)
+        public void SetSuccess(TResult data)
         {
-            this.IsSuccess = true;
-            this.Result = data;
+            IsSuccess = true;
+            Result = data;
         }
 
-        public virtual ApiResult<TResult> SetApiResult(TResult data)
+        public ApiResult<TResult> SetApiResult(TResult data)
         {
-            this.Result = data;
+            Result = data;
             return this;
         }
     }
 
     public class ApiResult
     {
-        protected ApiResult()
-        {
-        }
-
         public ApiResult(int errorCode, string message)
         {
-            this.ErrorCode = errorCode;
-            this.Message = message;
+            ErrorCode = errorCode;
+            Message = message;
         }
 
         public bool IsSuccess { get; set; }
@@ -47,34 +42,34 @@
 
         public string OperationId { get; set; }
 
-        public virtual void SetSuccess()
+        public void SetSuccess()
         {
-            this.IsSuccess = true;
+            IsSuccess = true;
         }
 
-        public virtual void SetFailed(int errorCode)
+        public void SetFailed(int errorCode)
         {
-            this.IsSuccess = false;
-            this.ErrorCode = errorCode;
+            IsSuccess = false;
+            ErrorCode = errorCode;
         }
 
-        public virtual void SetFailed(string msg)
+        public void SetFailed(string msg)
         {
-            this.IsSuccess = false;
-            this.ErrorCode = -1;
-            this.Message = msg;
+            IsSuccess = false;
+            ErrorCode = -1;
+            Message = msg;
         }
 
-        public virtual void SetFailed(int errorCode, string msg)
+        public void SetFailed(int errorCode, string msg)
         {
-            this.IsSuccess = false;
-            this.ErrorCode = errorCode;
-            this.Message = msg;
+            IsSuccess = false;
+            ErrorCode = errorCode;
+            Message = msg;
         }
 
         public override string ToString()
         {
-            return string.Format("{0},ErrorCode:{1},Message:{2}", (object) this.IsSuccess, (object) this.ErrorCode, (object) this.Message);
+            return $"{IsSuccess},ErrorCode:{ErrorCode},Message:{Message}";
         }
     }
 }

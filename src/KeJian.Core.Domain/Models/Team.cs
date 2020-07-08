@@ -6,23 +6,23 @@ namespace KeJian.Core.Domain.Models
     public class Team
     {
         /// <summary>
-        /// ID
+        ///     ID
         /// </summary>
         [Key]
         public int Id { get; set; }
 
         /// <summary>
-        /// 图片
+        ///     图片
         /// </summary>
         public string Img { get; set; }
 
         /// <summary>
-        /// 备注
+        ///     备注
         /// </summary>
         public string Remark { get; set; }
 
         /// <summary>
-        /// 添加时间
+        ///     添加时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
 
