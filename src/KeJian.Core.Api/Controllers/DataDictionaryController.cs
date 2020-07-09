@@ -51,7 +51,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 数据字典
+        ///     创建或修改数据字典
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

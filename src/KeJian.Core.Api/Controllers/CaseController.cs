@@ -40,7 +40,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 案例
+        ///     创建或修改案例
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+﻿using System.Text;
 using KeJian.Core.Application;
 using KeJian.Core.Domain.Configs;
 using KeJian.Core.EntityFramework;
 using KeJian.Core.Library;
-using KeJian.Core.Library.Filter;
+using KeJian.Core.Library.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,8 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace KeJian.Core.Api
 {
@@ -32,12 +27,6 @@ namespace KeJian.Core.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers(options =>
-            {
-                options.Filters.Add<ResultFilter>();
-                options.Filters.Add<ExceptionFilter>();
-            });
-
             services.AddDbContextPool<DefaultDbContext>(
                 options => { options.UseMySql(Configuration.GetConnectionString("DefaultConnection")); }, 20);
 
@@ -64,43 +53,7 @@ namespace KeJian.Core.Api
                 };
             });
 
-            services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "kejian api", Version = "v1" });
-
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "🔑 添加Jwt授权Token：Bearer Token",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    BearerFormat = "JWT",
-                    Scheme = "Bearer"
-                });
-
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new List<string> { }
-                    }
-                });
-
-                options.OperationFilter<SwaggerFilter>();
-
-                foreach (var enumerateFile in Directory.EnumerateFiles(AppContext.BaseDirectory, "Kejian.*.xml"))
-                {
-                    options.IncludeXmlComments(enumerateFile, true);
-                }
-            });
-
+            services.AddLibrarySwagger();
             services.AddApplication();
             services.AddLibrary();
         }
@@ -117,12 +70,7 @@ namespace KeJian.Core.Api
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            app.UseSwagger();
-            app.UseSwaggerUI(options =>
-            {
-                options.DocExpansion(DocExpansion.None);
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "kejian api demo");
-            });
+            app.UseLibrarySwagger();
         }
     }
 }

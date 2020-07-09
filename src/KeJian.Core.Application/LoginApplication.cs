@@ -9,6 +9,7 @@ using KeJian.Core.Domain.Configs;
 using KeJian.Core.Domain.Dto;
 using KeJian.Core.EntityFramework;
 using KeJian.Core.Library.Exception;
+using KeJian.Core.Library.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -29,6 +30,8 @@ namespace KeJian.Core.Application
 
         public async Task<string> LoginAsync(LoginInputDto inputDto)
         {
+            inputDto.Password = inputDto.Password.GetMd5();
+
             var user = await _dbContext.User
                 .Where(u => !u.IsDeleted)
                 .Where(u => u.IsAction)

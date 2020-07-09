@@ -51,7 +51,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 招聘
+        ///     创建或修改招聘
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

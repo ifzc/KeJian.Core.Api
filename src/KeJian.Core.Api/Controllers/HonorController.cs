@@ -40,7 +40,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 荣誉
+        ///     创建或修改荣誉
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

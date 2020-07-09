@@ -8,17 +8,21 @@ namespace KeJian.Core.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly ILoginApplication _loginApplication;
 
-        public LoginController(ILoginApplication loginApplication)
+        public AccountController(ILoginApplication loginApplication)
         {
             _loginApplication = loginApplication;
         }
 
-        [HttpPost]
-        [Authorize]
+        /// <summary>
+        ///     获取 Token
+        /// </summary>
+        /// <param name="inputDto"></param>
+        /// <returns></returns>
+        [HttpPost("Login")]
         public async Task<string> LoginAsync(LoginInputDto inputDto)
         {
             return await _loginApplication.LoginAsync(inputDto);

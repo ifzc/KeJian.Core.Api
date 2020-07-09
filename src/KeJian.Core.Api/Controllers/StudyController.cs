@@ -40,7 +40,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 学习模块
+        ///     创建或修改学习模块
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

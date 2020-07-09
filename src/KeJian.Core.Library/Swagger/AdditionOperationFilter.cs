@@ -5,24 +5,19 @@ using KeJian.Core.Domain.Dto.Base;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace KeJian.Core.Library.Filter
+namespace KeJian.Core.Library.Swagger
 {
-    public class SwaggerFilter : IOperationFilter
+    public class AdditionOperationFilter : IOperationFilter
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {
             if (context == null) return;
 
-            //context.ApiDescription.TryGetMethodInfo(out var methodInfo);
-            //var attribute = methodInfo.GetCustomAttributes<ExtraSwaggerParameter>().FirstOrDefault();
-            //AddExtraParameters(operation, attribute?.ParameterNames);
-
             var actualReturnType = context.MethodInfo.ReturnType.Name == "Task`1"
                 ? context.MethodInfo.ReturnType.GenericTypeArguments.FirstOrDefault()
                 : context.MethodInfo.ReturnType;
 
-            if (actualReturnType == null ||
-                (actualReturnType.Name == "ApiResult`1" || actualReturnType.Name == "ApiResult")) return;
+            if (actualReturnType == null || actualReturnType.Name == "ApiResult`1" || actualReturnType.Name == "ApiResult") return;
 
             var wrapApiResultReturnType = actualReturnType == typeof(void) || actualReturnType == typeof(Task)
                 ? typeof(ApiResult)

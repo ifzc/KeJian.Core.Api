@@ -40,7 +40,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 消息
+        ///     创建或修改消息
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

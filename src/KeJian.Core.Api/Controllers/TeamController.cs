@@ -40,7 +40,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 团队风采
+        ///     创建或修改团队风采
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

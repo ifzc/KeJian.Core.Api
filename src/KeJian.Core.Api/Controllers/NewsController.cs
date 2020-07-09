@@ -52,7 +52,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 新闻动态
+        ///     创建或修改新闻动态
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>

@@ -40,7 +40,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     创建or修改 合作企业
+        ///     创建或修改合作企业
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
