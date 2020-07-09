@@ -19,7 +19,7 @@ namespace KeJian.Core.Library.Swagger
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "JWT模式授权，🔑 请输入 Bearer [Token] 进行身份验证",
+                    Description = "JWT模式授权，请输入 Bearer [Token] 进行身份验证",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
@@ -35,7 +35,13 @@ namespace KeJian.Core.Library.Swagger
                 options.SwaggerDoc(assemblyName, new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = assemblyName
+                    Title = assemblyName,
+                    Contact = new OpenApiContact()
+                    {
+                        Email = "ifengzc@163.com",
+                        Name = "feng",
+                        Url = new Uri("https://github.com/ifzc")
+                    }
                 });
                 options.CustomSchemaIds(t => t.FullName);
 
