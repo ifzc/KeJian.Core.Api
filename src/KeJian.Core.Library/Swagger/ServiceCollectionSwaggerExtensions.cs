@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.IO;
+using System.Reflection;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Text;
 
 namespace KeJian.Core.Library.Swagger
 {
@@ -21,7 +19,7 @@ namespace KeJian.Core.Library.Swagger
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
-                    Description = "JWT模式授权，请输入 Bearer <Token> 进行身份验证",
+                    Description = "JWT模式授权，🔑 请输入 Bearer [Token] 进行身份验证",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
@@ -41,10 +39,9 @@ namespace KeJian.Core.Library.Swagger
                 });
                 options.CustomSchemaIds(t => t.FullName);
 
-                foreach (var enumerateFile in Directory.EnumerateFiles(AppContext.BaseDirectory, "Kejian.*.xml"))
-                {
-                    options.IncludeXmlComments(enumerateFile, true);
-                }
+                // foreach (var xmlFile in Directory.EnumerateFiles(Directory.GetCurrentDirectory(), "KeJian.*.xml"))
+                foreach (var xmlFile in Directory.EnumerateFiles(AppContext.BaseDirectory, "KeJian.*.xml"))
+                    options.IncludeXmlComments(xmlFile, true);
             });
 
             // 配置 SwaggerOptions
@@ -62,10 +59,7 @@ namespace KeJian.Core.Library.Swagger
 
                 var assemblyName = Assembly.GetEntryAssembly()?.GetName().Name;
 
-                if (assemblyName != null)
-                {
-                    options.SwaggerEndpoint($"{assemblyName}/v1", "V1");
-                }
+                if (assemblyName != null) options.SwaggerEndpoint($"{assemblyName}/v1", "V1");
             });
 
             services.AddSwaggerGen();

@@ -17,7 +17,8 @@ namespace KeJian.Core.Library.Swagger
                 ? context.MethodInfo.ReturnType.GenericTypeArguments.FirstOrDefault()
                 : context.MethodInfo.ReturnType;
 
-            if (actualReturnType == null || actualReturnType.Name == "ApiResult`1" || actualReturnType.Name == "ApiResult") return;
+            if (actualReturnType == null || actualReturnType.Name == "ApiResult`1" ||
+                actualReturnType.Name == "ApiResult") return;
 
             var wrapApiResultReturnType = actualReturnType == typeof(void) || actualReturnType == typeof(Task)
                 ? typeof(ApiResult)

@@ -1,4 +1,5 @@
 ﻿using KeJian.Core.Library.Filter;
+using KeJian.Core.Library.Swagger;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace KeJian.Core.Library
@@ -12,6 +13,8 @@ namespace KeJian.Core.Library
                 options.Filters.Add<ResultFilter>();
                 options.Filters.Add<ExceptionFilter>();
             });
+
+            services.AddLibrarySwagger();
         }
     }
 }

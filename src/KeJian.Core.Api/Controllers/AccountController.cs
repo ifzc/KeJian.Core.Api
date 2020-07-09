@@ -18,7 +18,7 @@ namespace KeJian.Core.Api.Controllers
         }
 
         /// <summary>
-        ///     获取 Token
+        ///     获取 🔑 Token 
         /// </summary>
         /// <param name="inputDto"></param>
         /// <returns></returns>

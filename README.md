@@ -1,6 +1,6 @@
 ﻿# KeJian.Core.Api
 
-### ✨站点部署
+### ✨ 站点部署
 > System：Linux - CentOS 7.7   
 > DB：MySql  
 > Api Host : [kejianapi.filog.cn/swagger](http://kejianapi.filog.cn/swagger)  

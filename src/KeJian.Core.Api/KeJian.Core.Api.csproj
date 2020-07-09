@@ -5,17 +5,17 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <DocumentationFile>bin\Debug\KeJian.Core.Api.xml</DocumentationFile>
-	  <OutputPath>bin\Debug</OutputPath>
-	  <WarningsAsErrors>NU1605</WarningsAsErrors>
-	  <NoWarn>1701;1702;1591</NoWarn>
+		<DocumentationFile>bin\Debug\KeJian.Core.Api.xml</DocumentationFile>
+		<OutputPath>bin\Debug</OutputPath>
+		<WarningsAsErrors>NU1605</WarningsAsErrors>
+		<NoWarn>1701;1702;1591</NoWarn>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-	  <OutputPath>bin\Release</OutputPath>
-	  <DocumentationFile>bin\Release\KeJian.Core.Api.xml</DocumentationFile>
-	  <WarningsAsErrors>NU1605</WarningsAsErrors>
-	  <NoWarn>1701;1702;1591</NoWarn>
+		<OutputPath>bin\Release</OutputPath>
+		<DocumentationFile>bin\Release\KeJian.Core.Api.xml</DocumentationFile>
+		<WarningsAsErrors>NU1605</WarningsAsErrors>
+		<NoWarn>1701;1702;1591</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -30,6 +30,5 @@
 	<ItemGroup>
 		<ProjectReference Include="..\KeJian.Core.Application\KeJian.Core.Application.csproj" />
 	</ItemGroup>
-
 
 </Project>

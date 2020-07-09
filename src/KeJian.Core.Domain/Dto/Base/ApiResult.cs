@@ -1,8 +1,4 @@
-﻿// ReSharper disable MemberCanBePrivate.Global
-// ReSharper disable MemberCanBeProtected.Global
-// ReSharper disable UnusedMember.Global
-
-namespace KeJian.Core.Domain.Dto.Base
+﻿namespace KeJian.Core.Domain.Dto.Base
 {
     public sealed class ApiResult<TResult> : ApiResult
     {

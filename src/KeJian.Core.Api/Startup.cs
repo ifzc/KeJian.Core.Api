@@ -53,7 +53,15 @@ namespace KeJian.Core.Api
                 };
             });
 
-            services.AddLibrarySwagger();
+            services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+            {
+                builder
+                    .AllowAnyOrigin()
+                    .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+            }));
+
             services.AddApplication();
             services.AddLibrary();
         }

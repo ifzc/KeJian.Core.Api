@@ -1,5 +1,4 @@
-﻿// ReSharper disable MemberCanBePrivate.Global
-namespace KeJian.Core.Library.Exception
+﻿namespace KeJian.Core.Library.Exception
 {
     public class StringResponseException : ResponseExceptionBase
     {
