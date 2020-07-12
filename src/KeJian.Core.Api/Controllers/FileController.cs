@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using KeJian.Core.Library.Exception;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
@@ -19,12 +20,8 @@ namespace KeJian.Core.Api.Controllers
 
         public FileController(IConfiguration configuration)
         {
-#if DEBUG
-            _fileUploadingPath = "C:\\temp";
-#else
             _fileUploadingPath = configuration.GetSection("FileUploadingPath").Value;
             _fileServerHost = configuration.GetSection("FileServerHost").Value;
-#endif
         }
 
         /// <summary>
@@ -33,6 +30,7 @@ namespace KeJian.Core.Api.Controllers
         /// <param name="fileName">文件名</param>
         /// <returns></returns>
         [HttpPost("UploadingStream")]
+        [Authorize]
         public async Task<string> UploadingStream(string fileName)
         {
             var boundary = HeaderUtilities.RemoveQuotes(MediaTypeHeaderValue.Parse(Request.ContentType).Boundary).Value;
@@ -62,7 +60,8 @@ namespace KeJian.Core.Api.Controllers
         ///     缓存式文件上传
         /// </summary>
         [HttpPost("UploadingFormFile")]
-        public async Task<IActionResult> UploadingFormFile(IFormFile file)
+        [Authorize]
+        public async Task<string> UploadingFormFile(IFormFile file)
         {
             if (file == null || file.Length == 0)
                 throw new StringResponseException("file is null");
@@ -71,7 +70,7 @@ namespace KeJian.Core.Api.Controllers
             var fileExtension = Path.GetExtension(file.FileName);
             var randomFileName = Guid.NewGuid() + "." + fileExtension;
             await WriteFileAsync(stream, Path.Combine(_fileUploadingPath, randomFileName));
-            return Created(nameof(FileController), null);
+            return _fileServerHost + "/" + randomFileName;
         }
 
         /// <summary>
