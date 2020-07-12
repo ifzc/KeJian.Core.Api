@@ -7,7 +7,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace KeJian.Core.Library.Swagger
 {
-    public class AdditionOperationFilter : IOperationFilter
+    public abstract class AdditionOperationFilter : IOperationFilter
     {
         public void Apply(OpenApiOperation operation, OperationFilterContext context)
         {

@@ -18,9 +18,7 @@
     "DefaultConnection": "-- connection string --"
   },
   "JwtSecurityOption": {
-    "SigningKey": "-- signing key --",
-    "Issuer": "kejian.smilef.cn",
-    "Audience": "kejianapi.smilef.cn"
+    "SigningKey": "-- signing key --"
   }
 }
 ```
