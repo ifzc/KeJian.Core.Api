@@ -57,6 +57,7 @@ namespace KeJian.Core.Api
             {
                 builder
                     .AllowAnyOrigin()
+                    .AllowAnyHeader()
                     .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
             }));
 
