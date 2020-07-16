@@ -57,9 +57,7 @@ namespace KeJian.Core.Api
             {
                 builder
                     .AllowAnyOrigin()
-                    .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                    .AllowAnyHeader()
-                    .AllowCredentials();
+                    .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
             }));
 
             services.AddApplication();
@@ -72,6 +70,7 @@ namespace KeJian.Core.Api
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();
