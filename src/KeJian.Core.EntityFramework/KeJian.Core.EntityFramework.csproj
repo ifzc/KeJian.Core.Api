@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KeJian.Core.Domain\KeJian.Core.Domain.csproj" />
+    <ProjectReference Include="..\KeJian.Core.Library\KeJian.Core.Library.csproj" />
   </ItemGroup>
 
 </Project>

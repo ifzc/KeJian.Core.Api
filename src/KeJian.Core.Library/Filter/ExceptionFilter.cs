@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Text.Encodings.Web;
 using System.Text.Json;
-using KeJian.Core.Domain.Dto.Base;
+using KeJian.Core.Library.Dto;
 using KeJian.Core.Library.Exception;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;

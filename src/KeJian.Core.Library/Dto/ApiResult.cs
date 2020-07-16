@@ -1,4 +1,4 @@
-﻿namespace KeJian.Core.Domain.Dto.Base
+﻿namespace KeJian.Core.Library.Dto
 {
     public sealed class ApiResult<TResult> : ApiResult
     {

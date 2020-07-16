@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using KeJian.Core.Domain.Dto.Base;
 using KeJian.Core.Library.Attributes;
+using KeJian.Core.Library.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;

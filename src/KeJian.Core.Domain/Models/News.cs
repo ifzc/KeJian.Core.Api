@@ -1,5 +1,5 @@
 ﻿using System;
-using KeJian.Core.Domain.Models.Base;
+using KeJian.Core.Library.EntityFrameworkCore;
 
 namespace KeJian.Core.Domain.Models
 {
