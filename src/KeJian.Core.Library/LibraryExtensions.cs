@@ -13,7 +13,10 @@ namespace KeJian.Core.Library
                 options.Filters.Add<ResultFilter>();
                 options.Filters.Add<ExceptionFilter>();
             });
-
+            services.AddMvc().AddJsonOptions(option =>
+            {
+                option.JsonSerializerOptions.IgnoreNullValues = true;
+            });
             services.AddLibrarySwagger();
         }
     }
